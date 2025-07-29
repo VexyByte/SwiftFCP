@@ -1,0 +1,82 @@
+.details-table{
+    border-spacing: 10px;
+}
+
+.left-pnl-table{
+    border-spacing: 5px;
+}
+
+.pnl-details-left{
+    width: 390px;
+    margin-left: 0px;
+}
+.pnl-passport{
+    padding-top: 10px;
+}
+.passport{
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.img-passport{
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.passport-details{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.chkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 2px;
+    border: 0.5px solid #fff;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.main-filter-panel{
+    overflow-wrap: normal;
+}
+
+.chkbox input{
+    width: 30px;
+    height: 15px;
+}
+.chkbox label{
+    padding-right: 5px;
+}
+.right-panel{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.table-panel{
+    height: 100%;
+    overflow: auto;
+}
+
+.krypton-table{
+    overflow-y: auto;
+}
+
+.content-panel{
+    display: flex;
+  }
+
+  .col {
+    flex: 1; /* additionally, equal width */
+  }
+
+
+
+

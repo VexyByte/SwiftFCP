@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GeeksforGeeks</h1>
+    
+    <h3>
+        Perform a real-time search on an HTML 
+        table (Entire & Column Specific)
+    </h3>
+
+    <b>Search the entire table:
+        <input id="entireSearch" type="text" 
+            placeholder="Search here">
+    </b>
+
+    <br>
+
+    <b>Search specific column (Course, Duration, or Type):
+        <select id="columnSelect">
+            <option value="all">All Columns</option>
+            <option value="Course">Course</option>
+            <option value="Duration">Duration</option>
+            <option value="Type">Type</option>
+        </select>
+        <input id="columnSearch" type="text" 
+            placeholder="Search column">
+    </b>
+
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Duration</th>
+            <th>Type</th>
+        </tr>
+        <tbody id="geeks">
+            <tr>
+                <td>C++ STL</td>
+                <td>1499</td>
+                <td>Online Classes</td>
+            </tr>
+            <tr>
+                <td>DSA Foundation</td>
+                <td>7999</td>
+                <td>Regular Classes</td>
+            </tr>
+            <tr>
+                <td>Geeks Classes</td>
+                <td>10799</td>
+                <td>Weekend Classes</td>
+            </tr>
+            <tr>
+                <td>Placement 100</td>
+                <td>9999</td>
+                <td>Online Classes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $("#entireSearch, #columnSearch").on("keyup", function () {
+                let entireValue = $("#entireSearch").val().toLowerCase();
+                let columnValue = $("#columnSearch").val().toLowerCase();
+                let selectedColumn = $("#columnSelect").val();
+
+                $("#geeks tr").each(function () {
+                    let rowText = $(this).text().toLowerCase();
+                    // Show all rows if entire search is empty
+                    let matchEntire = entireValue === "";
+
+                    if (entireValue !== "") {
+                        matchEntire = rowText.indexOf(entireValue) > -1;
+                    }
+                    // Assuming all rows initially match column search
+                    let matchColumn = true;
+                    if (selectedColumn !== "all" && columnValue !== "") {
+                        let columnData = $(this).find("td:nth-child(" +
+                            (selectedColumn === "Course" ? 1 :
+                                (selectedColumn === "Duration" ? 2 : 3)) +
+                            ")").text().toLowerCase();
+                        matchColumn = columnData.indexOf(columnValue) > -1;
+                    }
+
+                    $(this).toggle(matchEntire && matchColumn);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

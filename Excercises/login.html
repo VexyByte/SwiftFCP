@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Carousel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="carousel">
+    <div class="carousel-images">
+      <img src="../images/childimage.jpg" alt="Slide 1" />
+      <img src="../images/childimage2.jpg" alt="Slide 2" />
+      <img src="../images/childimage3.jpg" alt="Slide 3" />
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <script src="../js/script.js"></script>
+  <script>
+    const images = document.querySelectorAll('.carousel-images img');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    nextButton.addEventListener('click', nextImage);
+    prevButton.addEventListener('click', prevImage);
+
+    showImage(currentIndex);
+  </script>
+</body>
+</html>
