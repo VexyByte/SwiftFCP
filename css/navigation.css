@@ -104,12 +104,14 @@
     transition: .9s;
     position: absolute;
     background-image: linear-gradient(rgb(235, 235, 235), #ffffff, hwb(198 88% 8%));
-    min-width: 160px;
+    width: fit-content;
+    min-width: 140px;
     box-shadow: 10px 10px 10px 0px #288ba3f5;
     margin-top: 11px;
     margin-left: -10px;
     z-index: 1;
     padding: 5px 2px;
+
   }
   
   .dropdown-content .context-item {

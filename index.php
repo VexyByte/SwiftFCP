@@ -113,6 +113,26 @@
         <script>
             // Dynamically insert the current year
             document.getElementById("year").textContent = new Date().getFullYear();
+        
+            const images = [
+            'images/childimage.jpg',
+            'images/childimage2.jpg',
+            'images/childimage3.jpg',
+            ];
+
+            let index = 0;
+
+            function changeBackground() {
+                
+                document.body.style.backgroundImage = `url('${images[index]}')`;
+                index = (index + 1) % images.length;
+            }
+
+            // Initial load
+            changeBackground();
+
+            // Change every 5 seconds
+            setInterval(changeBackground, 6000);
         </script>
 
         <script src="js/script.js"></script>
